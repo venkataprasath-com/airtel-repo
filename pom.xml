@@ -33,9 +33,9 @@
 
         <!-- SonarQube Configuration -->
         <sonar.host.url>http://192.168.18.128:9000</sonar.host.url>
-             <sonar.token>squ_2b907617b8e8bb1aff37a6a3d3151c34cd937a23</sonar.token>
+    <sonar.token>squ_2b907617b8e8bb1aff37a6a3d3151c34cd937a23</sonar.token>
 
-
+        <!-- Project Encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -51,10 +51,10 @@
             <version>20260814</version>
         </dependency>
 
-        <!-- JUnit 4 -->
+        <!-- JUnit 5 Dependency -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
@@ -67,7 +67,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Mockito -->
+        <!-- Mockito Dependency -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -184,4 +184,5 @@
         </plugins>
 
     </build>
+
 </project>

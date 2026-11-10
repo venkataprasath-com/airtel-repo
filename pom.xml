@@ -1,3 +1,4 @@
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -21,8 +22,9 @@
         <url>http://venkat.com</url>
     </organization>
 
-    <!-- Properties -->
+    <!-- Project Properties -->
     <properties>
+
         <jdk.version>21</jdk.version>
         <maven.compiler.release>${jdk.version}</maven.compiler.release>
 
@@ -30,16 +32,18 @@
         <junit.version>4.13.2</junit.version>
         <log4j.version>2.26.1</log4j.version>
 
+        <!-- SonarQube Configuration -->
         <sonar.host.url>http://192.168.18.128:9000</sonar.host.url>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
     </properties>
 
     <!-- Dependencies -->
     <dependencies>
 
-        <!-- JSON -->
+        <!-- JSON Dependency -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
@@ -70,25 +74,28 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Spring Dependencies -->
+        <!-- Spring Core -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
+        <!-- Spring Web -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
+        <!-- Spring Web MVC -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
+        <!-- Spring Context -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -97,19 +104,21 @@
 
     </dependencies>
 
-    <!-- Nexus Deployment -->
+    <!-- Nexus Deployment Configuration -->
     <distributionManagement>
 
+        <!-- Release Repository -->
         <repository>
             <id>nexus-releases</id>
             <name>KK FUNDA Releases Nexus Repository</name>
-            <url>http://192.168.18.128:8081/repository/maven-releases/</url>
+            <url>http://192.168.18.128:8083/repository/maven-releases/</url>
         </repository>
 
+        <!-- Snapshot Repository -->
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <name>KK FUNDA Snapshot Nexus Repository</name>
-            <url>http://192.168.18.128:8081/repository/maven-snapshots/</url>
+            <url>http://192.168.18.128:8083/repository/maven-snapshots/</url>
         </snapshotRepository>
 
     </distributionManagement>
@@ -131,7 +140,21 @@
                 </configuration>
             </plugin>
 
-            <!-- Jetty Plugin -->
+            <!-- Maven Surefire Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+            </plugin>
+
+            <!-- SonarQube Maven Scanner Plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>5.8.0.7211</version>
+            </plugin>
+
+            <!-- Jetty Maven Plugin -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -151,21 +174,4 @@
                 <version>3.5.1</version>
                 <configuration>
                     <downloadSources>true</downloadSources>
-                    <downloadJavadocs>true</downloadJavadocs>
-                    <wtpversion>2.0</wtpversion>
-                    <wtpContextName>maven-web-application</wtpContextName>
-                </configuration>
-            </plugin>
-
-            <!-- Maven Surefire Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.2</version>
-            </plugin>
-
-        </plugins>
-
-    </build>
-
-</project>
+                    <downloadJavadocs>true</download

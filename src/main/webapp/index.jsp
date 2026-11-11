@@ -1,5 +1,5 @@
 <html>
 <body>
-<h1>Hello from Jenkins by Venkat + Tomcat</h1>
+<h1>Hello from Jenkins by Venkata + Tomcat</h1>
 </body>
 </html>
